@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}회원가입{% endblock %}
+{% block page %}signup{% endblock %}
+
+{% block content %}
+<div style=" padding-top:150px; margin-left:530px;">
+    <h1>Signup</h1>
+    <div class="jumbotron" style="margin-top: 10px; width: 500px; height:450px; " >
+    <form action="" method="POST">
+      {{ user_form.as_p }} 
+      {% csrf_token %} 
+    </div>
+    <input class="btn btn-outline-dark mx-1" type="submit" value="submit">
+    </form>
+  
+</div>
+{% endblock %}
