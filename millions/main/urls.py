@@ -7,5 +7,4 @@ urlpatterns = [
     path('timer/', views.timerView, name='timer'),
     path('community/', views.communityView, name='community'),
     path('about/', views.aboutView, name='about'),
-    
 ]

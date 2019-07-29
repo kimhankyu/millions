@@ -1,29 +1,31 @@
-{% extends "base.html" %}
-{% block content %}
-<body id="page-top">
+<style>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top bg-dark" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger " href="{% url 'index' %}">MILLIONS</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'about' %}">ABOUT US</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">COMMUNITY</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}">LOGIN</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
-{% endblock %}
+  p {
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 14px;
+    color: white;
+  }
+
+
+  .left-box{
+    float: left;
+    width: 37%;
+    margin-top: 180px;
+    margin-left: 181px;
+    padding: 20px;
+  }
+
+  .right-box{
+    float: left;
+    width: 37%;
+    margin-top: 180px;
+    padding: 20px;
+  }
+  
+
+</style>
+
+
+<div class = "left-box"><p>인간은 삶과 죽음의 중간 어딘가에 위치한 특정한 시간 속에서 살아갑니다. 그러나, 우리가 선택하고, 지배할 수 있는 것은 지금 현재 나에게 주어진 시간일 뿐입니다. 지나간 과거, 다가올 미래는 생각하고, 추억할 수 는 있지만 돌아가거나, 미리 가볼 수 도 없습니다. 이처럼 우리가 살아갈 수 있는 시간은 지금 우리 앞에 째깍거리는 시계 바늘과 같이 지금 이 순간 밖에 없습니다.<br> 통제할 수 없는 것에 미련을 두고, 후회하고, 불안해하기 보다는 지금 우리가 통제할 수 있는 유일한 현재, 지금 이 순간에 집중하는 삶을 살아보는 것이 'MILLIONS' 의 목표입니다. 지금 우리가 채워가고 있는 시간들이 다가올 미래를 결정하고, 미래에 추억할 과거를 결정합니다. 과거와 미래는 통제할 수 없지만, 현재는 과거와 미래에 영향을 미칩니다.</p></div>
+<div class = "right-box"><p><strong>MILLIONS</strong>는 이러한 현재의 중요성에 집중하여 특정한 목표, 성취를 원하는 사람들을 위하여 무언가에 온전히 집중할 수 있도록 도와주는, 이에 더하여 그러한 성취감, 중간과정을 다른 사람들과 공유하여 피드백, 동기부여를 받을 수 있는 플랫폼을 만들어보고자 했습니다. MILLIONS 를 이용하는 유저들로 하여금 특정한 시간 속에 온전히 집중할 수 있도록, 그리고 그 집중한 시간들이 축적되어 가는 것을 시각적 자료로 제공함으로써 자신에 대한 반성, 향후 계획 수정 등을 할 수 있도록하고, 마지막으로 집중한 시간들의 최종 결과물을 비슷한 목표를 가진 동료들 혹은 경쟁자들과 공유할 수 있도록 하는 서비스를 제공하고자 합니다.</p></div>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}회원가입{% endblock %}
+{% block page %}signup{% endblock %}
+
+{% block content %}
+
+<div style="padding-top:70px; margin-left:500px;">
+  <div class="jumbotron" style="margin-top:40px; width:570px; height:820px;">
+  <h1 class="h3 mb-3 font-weight-normal" style="margin-left:190px;"><strong>sign up</strong></h1>
+    <div style="margin-top:5px; width:500px; height:450px;" >
+    <form action="" method="POST">
+      {{ user_form.as_p }} 
+      {% csrf_token %} 
+    <input class="btn btn-outline-dark" style="margin-top:20px; margin-right:100px;" type="submit" value="submit">
+    </form>
+  </div>
+  
+</div>
+{% endblock %}

@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 
 INSTALLED_APPS += [
-    'django.contrib.sites',
     'main',
     'users',
     'allauth',
@@ -53,7 +53,7 @@ INSTALLED_APPS += [
     'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.kakaotalk',
     # 'allauth.socialaccount.provider.instagram',
-
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -165,3 +165,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication'
+    ]
+}

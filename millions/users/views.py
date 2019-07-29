@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .forms import RegisterForm
 
 
-def register(request):
+def registerView(request):
     if request.method == 'POST':
         user_form = RegisterForm(request.POST)
         if user_form.is_valid():
@@ -15,3 +15,7 @@ def register(request):
         user_form = RegisterForm()
 
     return render(request, 'registration/register.html', {'user_form': user_form})
+
+
+def aaa(requset):
+    return render(requset, 'registration/aaa.html')
