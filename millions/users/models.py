@@ -44,14 +44,14 @@ class User(AbstractUser):
                                 max_length=200, unique=True, null=True)
     username = models.CharField(max_length=30, unique=True)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, blank=True, null=True)
-        
 
+    objects = UserManager()
 
-    USERNAME_FILED = []
-    REQUIRED_FILEDS = ['gender']
+    USERNAME_FILED = 'email'
+    REQUIRED_FILEDS = []
 
     def __str__(self):
-        return self.username
+        return self.email
 
 
 

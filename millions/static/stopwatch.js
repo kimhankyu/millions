@@ -1,7 +1,7 @@
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
-
+let str;
 //Define vars to hold "display" value
 let displaySeconds = 0;
 let displayMinutes = 0;
@@ -12,6 +12,23 @@ let interval = null;
 
 //Define var to hold stopwatch status
 let status = "stopped";
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
 
 //Stopwatch function (logic to determine when to increment next value, etc.)
 function stopWatch() {
@@ -48,43 +65,10 @@ function stopWatch() {
     else {
         displayHours = hours;
     }
-
     //Display updated time values to user
     var returnTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
     document.getElementById("display").innerHTML = returnTime;
     return returnTime;
-}
-
-function postRequest(url, data) {
-    return fetch(url, {
-        credentials: 'same-origin', // 'include', default: 'omit'
-        method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
-        body: JSON.stringify(data), // Coordinate the body type with 'Content-Type'
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        }),
-    })
-        .then(response => response.json())
-}
-
-
-function startStop() {
-    if (status === "stopped") {
-        //Start the stopwatch (by calling the setInterval() function)
-        let str;
-        interval = window.setInterval(function () {
-            str = stopWatch();
-        }, 1000);
-        postRequest('millions/main/views.py', str);
-        document.getElementById("startStop").innerHTML = "Stop";
-        status = "started";
-    }
-    else {
-        window.clearInterval(interval);
-        document.getElementById("startStop").innerHTML = "Start";
-        status = "stopped";
-
-    }
 }
 
 //Function to reset the stopwatch
@@ -95,13 +79,39 @@ function reset() {
     hours = 0;
     document.getElementById("display").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "Start";
-
 }
 
 function record() {
     window.clearInterval(interval);
-
     const p = document.createElement('p');
     p.innerHTML = time.toFixed(2);
     recordsArea.appendChild(p);
+}
+
+function startStop() {
+    if (status === "stopped") {
+        //Start the stopwatch (by calling the setInterval() function)
+        interval = window.setInterval(function () {
+            str = stopWatch();
+        }, 1000);
+        status = "started";
+    }
+    else {
+        console.log(str);
+        window.clearInterval(interval);
+        status = "stopped";
+        fetch('http://127.0.0.1:8000', {
+            method: 'post',
+            headers: {
+                "X-CSRFToken": getCookie("csrftoken"),
+                "Accept": "application/json",
+                "Content-Type": "application/json"                
+            },
+            body: JSON.stringify({data:str})
+          }).then(function(response) {
+            var aa = response.json();
+            console.log(aa);
+            return aa;
+          });
+    }
 }

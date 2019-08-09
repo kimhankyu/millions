@@ -1,51 +1,66 @@
-<!-- {% load socialaccount %}
-{% providers_media_js %}
+<html>
+  <head>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-<style>
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap&subset=korean" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  
+  
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-</style>
+  </head>
 
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
+  <body>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
 
-  <div class="jumbotron" style="margin-top:20px; width: 490px; height:500px; margin-left:520px;">
-    <h1 class="h3 mb-3 font-weight-normal"><strong>sign in</strong></h1>
-    <label class="sr-only">username</label>
-    <br>
-    <input class="form-control" placeholder="username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <br>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <br>
-    <button class="btn btn-outline-dark mx-1 btn-block">로그인</button>
-    <br>
-    <a class="btn btn-outline-dark mx-1 btn-block" href="{% url 'users:register'%}">회원가입</a>
+      <div class="jumbotron" style="width: 490px; height:500px; margin-left:520px;">
+        <label class="sr-only">username</label>
+        <br>
+        <input class="form-control" placeholder="username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <br>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <br>
+        <button class="btn btn-outline-dark mx-1 btn-block">로그인</button>
+        <br>
+        <a class="btn btn-outline-dark mx-1 btn-block" href="{% url 'register'%}">회원가입</a>
 
-    <br><br>
-    <a class="btn btn-outline-primary btn-social mx-1" href="">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a class="btn btn-outline-warning btn-social mx-1" href="{% provider_login_url 'google' %}">
-      <i class="fa fa-google"></i>
-    </a>
-    <a class="btn btn-outline-info btn-social mx-1" href="">
-      <i class="fa fa-twitter"></i>
-    </a>
+        <br><br>
+        <a class="btn btn-outline-primary btn-social mx-1" href="">
+          <i class="fa fa-facebook"></i>
+        </a>
+        {% comment %} <a class="btn btn-outline-warning btn-social mx-1" href="{% provider_login_url 'google' %}">
+          <i class="fa fa-google"></i> {% endcomment %}
+        </a>
+        <a class="btn btn-outline-info btn-social mx-1" href="">
+          <i class="fa fa-twitter"></i>
+        </a>
 
-  </div>
-  </div>
-</form> -->
-<div> aaaaaaaa</div>
+      </div>
+      </div>
+    </form>
+  </body>
+
+</html>
+
+
+
+
+

@@ -1,1 +1,0 @@
-web: gunicorn millions.wsgi --log-file -

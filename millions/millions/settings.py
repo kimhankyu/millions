@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'main',
     'users',
+    'community',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -152,6 +153,12 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 각 media 파일에 관한 URL prefix
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 업로드된 파일을 저장할 디렉토리 경로
+MEDIA_URL = '/media/'
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
