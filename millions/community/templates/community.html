@@ -1,13 +1,88 @@
-<div class="container">
-    {% for post in posts %} 
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <hr>
-      <div class="post-preview">
-            <h2>{{post.title}} </h2>
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom fonts for this theme -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <!-- Portfolio Section -->
+    <section class="page-section portfolio" id="portfolio">
+      <div class="container" style ="width:42rem;" >
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Community</h2>
+        <!--Posts-->
+          <div class="container">
+            <!--post card-->
+            {% for post in posts %}
+              <div class="card">
+              <!-- Image and text -->
+                <nav class="navbar navbar-light bg-light">
+                  <h4>
+                    <a class="navbar-brand" href="{% url 'post_detail' post.id %}">
+                        <img src="{{ post.image.url }}" alt="posting image"  width="33" height="30" >
+                      {{post.user}}
+                    </a>
+                  </h4>
+                </nav>
+                <img src="{{ post.image.url }}" alt="posting image"  class="card-img-top">
+                <div class="card-body" >
+                  <h5 class="card-title">{{post.title}}</h5>
+                  <p class="card-text">{{post.body}}</p>
+                  <!--좋아요 하트-->
+                  <a href="#" class="small-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                  &nbsp;&nbsp;
+                  <a href="#" class="small-btn"> <i class="fa fa-comment" aria-hidden="true"></i></a>
+                  <p class="card-text">댓글 달리는 공간</p>
+                  <!--댓글 쓰는 곳-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon1">comment</button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                  </div>
+                </div>
+              </div> <br><br><br>
+            {% endfor %}
             
-        <p>{{post.image}}</p>
-        <p class="post-meta">{{post.summary}}
+          <nav class="navbar fixed-bottom justify-content-center bg-light" id="bottom_nav">
+              <button class="btn btn-outline-success" stlye = "background-color:white; color:white;" >
+                <i class="fa fa-plus-square" style ="color:black;" ></i>
+              </button>
+          </nav>
+          
+          </div>
       </div>
-    </div>
-</div>
-    {% endfor %}
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+
+  </body>
+</html>

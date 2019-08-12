@@ -1,80 +1,91 @@
+
+  {% load staticfiles %}
+  <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My page</h2>
+  <div class="container" style = "color : #DDDDDF;">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-900 small" style="margin-left:1350px">kim ye ji</span>
-        <img class="img-profile rounded-circle" width="30" src="{% static 'img/testimonials-1.jpg' %}">
+      <span class="mr-2 d-none d-lg-inline text-gray-900 small" style="margin-left:1350px">{{ request.user.username }}</span>
+      <img class="img-profile rounded-circle" width="30" src="{% static 'testimonials-1.jpg' %}">
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Profile
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-          Settings
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-          Activity Log
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-          Logout
-        </a>
+      <a class="dropdown-item" href="#">
+      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+      Profile
+      </a>
+      <a class="dropdown-item" href="#">
+      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+      Settings
+      </a>
+      <a class="dropdown-item" href="#">
+      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+      Activity Log
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+      Logout
+      </a>
       </div>
-    </li>
-
-   <div class="masthead bg-light container">
+      </li>
       <div class="row">
-        <div class="testimonial-item mx-auto mb-5">
-          <img class="img-fluid rounded-circle mb-4" width="200" src="{% static 'img/testimonials-1.jpg' %}">
-          <p class="a"></p>
-          
-          <h4>Kim ye ji</h4>
-          <p>"Hello #코딩 #마스터"</p>
-          <a class="btn btn-outline-warning mb-2" href="{% url 'index' %}">
-              <i class="fa fa-pencil-alt">Edit</i></a>
-        </div>
+      <div class="testimonial-item mx-auto mb-5">
+      <img class="img-fluid rounded-circle mb-4" width="200" src="{% static 'testimonials-1.jpg' %}">
+      <p class="a" style = "color : white;"></p>
+      <h4 style = "color : white;">{{ request.user.username }}</h4>
+      <p style = "color : white;">"Hello #코딩 #마스터"</p>
+      <a class="btn btn-outline-warning mb-2" href="{% url 'index' %}" style = "color : white;">
+      <i class="fa fa-pencil-alt">Edit</i></a>
       </div>
-    <!-- Content Column -->
-    <div class="col-lg-7 mb-4" style="margin-left:450px;">
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 text-primary">Projects</h6></div>
-        <div class="card-body">
-          <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-          <div class="progress mb-4">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-          <div class="progress mb-4">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-          <div class="progress mb-4">
-            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
+  </div>
+
+<br><br><br><br><br><br><br>
+
+         <!-- Content Column 자신 스코어 조회-->
+      
+            <div class="col-lg-7 mb-4" style="margin-left: 670px;">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 text-primary">Projects</h6></div>
+                    <div class="card-body">
+                        <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
   
-      <div class="col-xl-4" style="margin-right:330px;">
-      <div class="card shadow mb-4" style="margin-top:-400px;">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header">
-          <h6 class="m-0 text-primary">My Level</h6>
+ <!--레베루 표시하는 곳-->
+    
+        <div class="col-xl-4" style="margin-left: 300px;">
+            <div class="card shadow mb-4" style="margin-top:-350px;">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header">
+                 <h6 class="m-0 text-primary" style = "color : white;">Level {{my_info.get_level}}</h6>
+                <a class="btn btn-primary" style="margin-top:10px" data-toggle="modal" href="#myModal" style ="color : white;">
+                <i class="fa fa-trophy" style = "color : white;">등급</i></a>
+                </div>
+                <!-- Modal 그 병아리에서 ???까지 나오게 하는 것 -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">최종 등급에 도달해보세요!</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img width="400" height="160" style="margin-left:30px" src="{% static 'abcd.jpg' %}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--등급 표시-->
+                <div class="card-body">
+                    <img width="150" height="180" style="margin-left:60px" src="{% static '닭.jpg' %}">
+                    <h3 class="text-dark" style="margin-left:90px" style = "color : white;">Master</h3>
+                </div>
+            </div>
         </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <img width="150" height="180" style="margin-left:60px"
-           src="{% static 'img/닭.jpg' %}">
-           <h3 class="text-dark" style="margin-left:90px">Master</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>

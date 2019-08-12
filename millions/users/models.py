@@ -5,8 +5,6 @@ GENDER_CHOICES = (
     (0, 'Male'),
     (1, 'Female'),
 )
-
-
 class UserManager(BaseUserManager):
     def _create_user(self, email, username, password, gender=2, **extra_fields):
         """
@@ -26,7 +24,7 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, username, password, **extra_fields)
-
+   
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
@@ -36,22 +34,28 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self._create_user(email, 'blogs/like_section.html',  password, **extra_fields)
+        return self._create_user(email, 'mypage.html',  password, **extra_fields)
 
 
 class User(AbstractUser):
     email = models.EmailField(verbose_name='email',
-                                max_length=200, unique=True, null=True)
-    username = models.CharField(max_length=30, unique=True)
+                              max_length=255, unique=True, null=True)
+
+    username = models.CharField(max_length=30)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, blank=True, null=True)
+    profile_image = models.ImageField(blank=True, null=True)
+    introduce = models.TextField(verbose_name="self-introduce", null=True)
+
 
     objects = UserManager()
-
-    USERNAME_FILED = 'email'
-    REQUIRED_FILEDS = []
+    USERNAME_FIELD = 'email'
+    # 필수로 받고 싶은 필드들 넣기 원래 소스 코드엔 email필드가 들어가지만 우리는 로그인을 이메일로 하니깐..
+    REQUIRED_FIELDS = []
 
     def __str__(self):
-        return self.email
+        return "<%s>" % (self.email)
+
+
 
 
 

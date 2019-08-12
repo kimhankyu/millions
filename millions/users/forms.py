@@ -23,21 +23,11 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'gender', 'email']
+        fields = ['username',  'gender', 'email']
         widgets = {
             'username': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Username',
-                'required' : 'true',
-            }),
-            'first_name': TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Firstname',
-                'required' : 'true',
-            }),
-            'last_name': TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Last name',
                 'required' : 'true',
             }),
             'email': TextInput(attrs={

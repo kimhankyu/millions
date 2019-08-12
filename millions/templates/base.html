@@ -29,18 +29,18 @@
     }
 
     body {
-      color: #0B0E1B;
+      background-color: #070F24;
       font-family: tahoma;
       font-size: 18px;
 
     }
-
+    
     nav {
       position: absolute;
       bottom: 0;
       width: 100%;
       height: 70px;
-      background: #121416;
+      background: #070F24;
       text-align: center;
     }
 
@@ -65,14 +65,9 @@
     }
 
     #screen2 {
-      background: #121416;
+      background: #070F24;
     }
 
-    #screen3 {
-      background:;
-    }
-
-  
     .container {
       width: 100%;
       display: block;
@@ -84,14 +79,15 @@
       width: 100%;
       font-size: 100px;
       text-align: center;
-      margin-top: 230px;
+      margin-top: 210px;
       display: inline-block;
-      color: white;
+      color: #04081E;
     }
 
     .buttons {
       text-align: center;
     }
+
   </style>
 
   <script src="{% static 'stopwatch.js' %}"></script>
@@ -147,23 +143,27 @@
 
       <div class="buttons">
       {% if not request.user.is_authenticated %}
-        <button type="button" class="btn btn-link btn-" style="color: white;" onclick="location.href='login'">Millions함께하기</button>
+       <a href = "{% url "login" %}">Millions함께하기</a>
       {% else %}
-        <button type="button" id="startStop" class="btn btn-link btn-lg" onclick="startStop()" style="color: white;">Start</button>
-        <button type="button" id="reset" class="btn btn-link btn-lg" onclick="reset()" style="color: white;">Reset</button><br><br>
+        <button type="button" id="startStop" class="btn btn-link btn-lg" onclick="startStop()" style="color: #04081E;">Start</button>
+        <button type="button" id="reset" class="btn btn-link btn-lg" onclick="reset()" style="color: #04081E;">Save</button><br><br>
       {% endif %}
       </div>
     </div>
     <nav>
       <ul>
-        <li><input type="button" onclick="fetchPage('about')" value="About" class="btn btn-link" style="color: white;"></li>
-        <li><input type="button" onclick="fetchPage('mypage')" value="My page" class="btn btn-link" style="color: white;"></li>
-        <li><input type="button" onclick="fetchPage('community')" value="Community" class="btn btn-link" style="color: white;"></li>
+        <li><input type="button" onclick="fetchPage('about')" value="About" class="btn btn-link" style="color: white; text-decoration: none; cursor: pointer;"></li>
+        {% if request.user.is_authenticated %}
+        <li><input type="button" onclick="fetchPage('mypage')" value="My page" class="btn btn-link" style="color: white; text-decoration: none; cursor: pointer;"></li>
+        {% endif %}
+        <li><input type="button" onclick="fetchPage('community')" value="Community" class="btn btn-link" style="color: white; text-decoration: none; cursor: pointer;"></li>
         <li class="nav-item">
-          {% if not request.user.is_authenticated %}
-          <input type="button" onclick="fetchPage('login')" value="Login" class="btn btn-link" style="color: white;">
-          {% else %}
-          <input type="button" class="btn btn-link" style="color: white;" href="{% url 'logout' %}" value="Logout">
+          {% if request.user.is_authenticated %}
+                <a class="btn btn-link" href="javascript:{document.getElementById('logout').submit()}" style="color: white; text-decoration: none;">Logout</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %} <input type="hidden"/>
+                </form>
+            
           {% endif %}
         </li>
       </ul>

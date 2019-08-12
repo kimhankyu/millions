@@ -159,7 +159,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 업로드된 파일을 저장할 디렉토리 경로
 MEDIA_URL = '/media/'
 
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 

@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap&subset=korean" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  </head>
-  <body>
-    <div style="padding-top:70px; margin-left:500px;">
-      <div class="jumbotron" style="margin-top:40px; width:570px; height:820px;">
-      <h1 class="h3 mb-3 font-weight-normal" style="margin-left:190px;"><strong>sign up</strong></h1>
-        <div style="margin-top:5px; width:500px; height:450px;" >
-        <form action="" method="POST">
-          {{ user_form.as_p }} 
-          {% csrf_token %} 
-        <input class="btn btn-outline-dark" style="margin-top:20px; margin-right:100px;" type="submit" value="submit">
-        </form>
-      </div>
-      
-    </div>
-  </body>
-</html>
+<div style="padding-left:50px; padding-top:50px;">
+    <h1>Signup</h1>
+    <hr>
+    <form action="" method="POST">
+      {{ user_form.as_p }} 
+      {% csrf_token %}
+      <input class="btn btn-primary" type="submit" value="submit">
+    </form>
+  
+</div>
